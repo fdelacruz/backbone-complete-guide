@@ -1,4 +1,4 @@
-(function(){ 
+(function(){
 
   window.App = {
     Models: {},
@@ -38,9 +38,9 @@
     },
 
     addOne: function(person){
-        var personView = new App.Views.Person({ model: person });
-        this.$el.append(personView.render().el);
-      }
+      var personView = new App.Views.Person({ model: person });
+      this.$el.append(personView.render().el);
+    }
   });
 
   // The View for a Person
@@ -51,7 +51,6 @@
 
     initialize: function () {
       this.model.on('change', this.render, this);
-      this.model.on('destroy', this.remove, this);
     },
 
     events: {
@@ -67,10 +66,7 @@
 
     destroyPerson: function () {
       this.model.destroy();
-    },
-
-    remove: function () {
-      this.$el.remove();
+      this.remove();
     },
 
     render: function(){
