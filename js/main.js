@@ -3,8 +3,44 @@
   window.App = {
     Models: {},
     Collections: {},
-    Views: {}
+    Views: {},
+    Router: {}
   };
+
+  App.Router = Backbone.Router.extend({
+    routes: {
+      '': 'index',
+      'show/:id': 'show',
+      'download/*random': 'download',
+      'search/:query': 'search',
+      '*default': 'default'
+    },
+
+    index: function(){
+      console.log("Index route has been reached..");
+    },
+
+    show: function(id){
+      console.log("Show route has been reached.. with id: " + id);
+    },
+
+    download: function(random){
+      console.log("Download route has been reached.. with random: " + random);
+    },
+
+    search: function(query) {
+      console.log("Search route has been reached.. with query: " + query);
+    },
+
+    default: function(default) {
+      console.log("This route is not handled.. you tried  to access:  " + default);
+    }
+
+  });
+
+  new App.Router;
+  Backbone.history.start();
+
 
   window.template = function(id) {
     return _.template($('#' + id).html());
