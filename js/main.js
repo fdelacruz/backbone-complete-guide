@@ -32,8 +32,8 @@
       console.log("Search route has been reached.. with query: " + query);
     },
 
-    default: function(default) {
-      console.log("This route is not handled.. you tried  to access:  " + default);
+    default: function(other) {
+      console.log("This route is not handled.. you tried  to access:  " + other);
     }
 
   });
